@@ -1,0 +1,9 @@
+.devcontainer
+.vscode
+scripts
+.gitignore
+.markdownlint.json
+README.md
+build
+*.pdf
+*.log

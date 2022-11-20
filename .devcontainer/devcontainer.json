@@ -1,0 +1,24 @@
+{
+  "name": "TeX Container",
+  "image": "ghcr.io/alexjackson1/contex:latest",
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "tecosaur.latex-utilities",
+        "esbenp.prettier-vscode",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  },
+  "initializeCommand": "docker pull ghcr.io/alexjackson1/contex:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-from-docker:1": {
+      "version": "latest"
+    }
+  }
+}

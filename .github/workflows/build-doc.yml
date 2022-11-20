@@ -1,0 +1,33 @@
+name: Document CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: Build Document Draft
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Current Date and Time
+        id: date
+        run: echo "date=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker Image
+        run: scripts/build.sh
+
+      - name: Get PDF File Name
+        id: filename
+        run: echo "filename=$(ls *.pdf | head -1)" >> $GITHUB_ENV
+
+      - name: Archive PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.date }}_${{ env.filename }}
+          path: ${{ env.filename }}
