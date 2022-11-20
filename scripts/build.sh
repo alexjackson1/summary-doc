@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eux
-DOCUMENT_NAME=arg
-IMAGE_NAME=arg
+DOCUMENT_NAME=summary
+IMAGE_NAME=summary
 IMAGE_VERSION=latest
 IMAGE=${IMAGE_NAME}:${IMAGE_VERSION}
 CONTEX_VARIANT=latest
